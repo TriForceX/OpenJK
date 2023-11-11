@@ -24,7 +24,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, see <https://www.gnu.org/licenses/>.
 ===========================================================================
 */
-
+//
 #include "hud_strafehelper.h"
 #include "cg_local.h"
 
