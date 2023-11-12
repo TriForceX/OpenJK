@@ -114,70 +114,70 @@ qboolean DF_HasAutoJump();
 
 /* Structs */
 typedef struct {
-    float x;    // horiz position
-    float y;    // vert position
-    float w;    // width
-    float h;    // height;
+	float x;    // horiz position
+	float y;    // vert position
+	float w;    // width
+	float h;    // height;
 } rectDef_c;
 
 //Strafehelper states
 
 typedef struct {
-    float           stopspeed;
-    float           duckscale;
-    float           swimscale;
-    float           wadescale;
-    float           accelerate;
-    float           airaccelerate;
-    float           wateraccelerate;
-    float           flyaccelerate;
-    float           friction;
-    float           waterfriction;
-    float           flightfriction;
-    float           airdecelrate;
-    float           airstopaccelerate;
-    float           airstrafewishspeed;
-    float           airstrafeaccelerate;
-    float           aircontrol;
-    qboolean        hasAirControl;
-    qboolean        hasForceJumps;
-    qboolean        hasAutoJump;
+	float           stopspeed;
+	float           duckscale;
+	float           swimscale;
+	float           wadescale;
+	float           accelerate;
+	float           airaccelerate;
+	float           wateraccelerate;
+	float           flyaccelerate;
+	float           friction;
+	float           waterfriction;
+	float           flightfriction;
+	float           airdecelrate;
+	float           airstopaccelerate;
+	float           airstrafewishspeed;
+	float           airstrafeaccelerate;
+	float           aircontrol;
+	qboolean        hasAirControl;
+	qboolean        hasForceJumps;
+	qboolean        hasAutoJump;
 }dfstyle; //movement pysics constants
 
 typedef struct {
-    float           frametime;
-    float           wishspeed;
-    float           currentspeed;
-    vec3_t          velocityAngles;
-    vec3_t          wishDir;
-    float           currentSpeed;
-    qboolean        wasOnGround;
+	float           frametime;
+	float           wishspeed;
+	float           currentspeed;
+	vec3_t          velocityAngles;
+	vec3_t          wishDir;
+	float           currentSpeed;
+	qboolean        wasOnGround;
 }dfcgaz; //values used for cgaz and its caluclations
 
 typedef struct {
-    vec4_t color;
-    qboolean active;
-    float angle;
-    qboolean onScreen;
-    float x;
-    float y;
-    vec3_t angs;
+	vec4_t color;
+	qboolean active;
+	float angle;
+	qboolean onScreen;
+	float x;
+	float y;
+	vec3_t angs;
 }dfsline;
 
 typedef struct {
-    float lineWidth;
-    int sensitivity;
-    int LINE_HEIGHT;
-    vec4_t twoKeyColor;
-    vec4_t oneKeyColor;
-    vec4_t oneKeyColorAlt;
-    vec4_t rearColor;
-    vec4_t activeColor;
-    qboolean rear;
-    qboolean center;
-    qboolean max;
-    qboolean triangles;
-    float offset;
+	float lineWidth;
+	int sensitivity;
+	int LINE_HEIGHT;
+	vec4_t twoKeyColor;
+	vec4_t oneKeyColor;
+	vec4_t oneKeyColorAlt;
+	vec4_t rearColor;
+	vec4_t activeColor;
+	qboolean rear;
+	qboolean center;
+	qboolean max;
+	qboolean triangles;
+	float offset;
 }dfshelp;
 
 //snaphud start
@@ -193,16 +193,16 @@ typedef struct {
 } dfsnaphud;
 
 typedef struct {
-    qboolean        onGround;
-    vec_t*          velocity;
-    usercmd_t       cmd;
-    int             moveStyle;
-    dfstyle         physics;
-    int             moveDir;
-    vec3_t          viewAngles;
-    vec3_t          viewOrg;
-    dfshelp         strafeHelper;
-    dfcgaz          cgaz;
+	qboolean        onGround;
+	vec_t*          velocity;
+	usercmd_t       cmd;
+	int             moveStyle;
+	dfstyle         physics;
+	int             moveDir;
+	vec3_t          viewAngles;
+	vec3_t          viewOrg;
+	dfshelp         strafeHelper;
+	dfcgaz          cgaz;
 	dfsnaphud		snappinghud;
 	qboolean		racemode;
 	float 			speed;
@@ -218,8 +218,8 @@ typedef struct {
 } dfstate;
 
 typedef struct {
-    int		frameSamples[SPEED_SAMPLES];
-    int		frameCount;
+	int		frameSamples[SPEED_SAMPLES];
+	int		frameCount;
 } speedgraph_t;
 
 /* Strafe HUD Init */
@@ -230,12 +230,12 @@ void DF_DrawShowPos(void);
 
 void DF_StrafeHelper();
 int DF_SetPlayerState(centity_t	*cent);
-void DF_SetClientReal();
-void DF_SetClient(centity_t	*cent);
+void DF_SetClientCmdReal();
+void DF_SetClientCmd(centity_t	*cent);
 void DF_SetPhysics();
 
 /* Cgaz Init */
-void DF_SetCGAZ(centity_t	*cent);
+void DF_SetCGAZ();
 void DF_SetFrameTime();
 void DF_SetVelocityAngles();
 
@@ -245,8 +245,7 @@ void DF_SetAngleToX(dfsline *inLine);
 void DF_SetLineColor(dfsline* inLine, int moveDir, qboolean max);
 
 /* Cgaz functions */
-float CGAZ_Opt(qboolean onGround, float accelerate, float currentSpeed, float wishSpeed,
-                      float frametime, float friction, float airaccelerate);
+float CGAZ_Opt(qboolean onGround, float accelerate, float currentSpeed, float wishSpeed,float frametime, float friction, float airaccelerate);
 float CGAZ_Max(qboolean onGround, float accelerate, float currentSpeed, float wishSpeed, float frametime, float friction, float airaccelerate);
 float DF_GetWishspeed(usercmd_t inCmd);
 float DF_GetCmdScale(usercmd_t cmd);
@@ -287,39 +286,39 @@ void DF_DrawPitchHud (float pitch);
 
 typedef struct
 {
-    float g_squared; // 0 when not on slick.
-    float v_squared;
-    float vf_squared;
-    float a_squared;
+	float g_squared; // 0 when not on slick.
+	float v_squared;
+	float vf_squared;
+	float a_squared;
 
-    float v;
-    float vf;
-    float a;
+	float v;
+	float vf;
+	float a;
 
-    float wishspeed;
+	float wishspeed;
 } state_t;
 
 typedef struct
 {
-    vec2_t graph_yh;
+	vec2_t graph_yh;
 
-    vec4_t graph_rgbaNoAccel;
-    vec4_t graph_rgbaPartialAccel;
-    vec4_t graph_rgbaFullAccel;
-    vec4_t graph_rgbaTurnZone;
+	vec4_t graph_rgbaNoAccel;
+	vec4_t graph_rgbaPartialAccel;
+	vec4_t graph_rgbaFullAccel;
+	vec4_t graph_rgbaTurnZone;
 
-    float d_min;
-    float d_opt;
-    float d_max_cos;
-    float d_max;
+	float d_min;
+	float d_opt;
+	float d_max_cos;
+	float d_max;
 
-    float d_vel;
+	float d_vel;
 
-    vec2_t wishvel;
+	vec2_t wishvel;
 
-    pmove_t       pm;
-    playerState_t pm_ps;
-    pml_t         pml;
+	pmove_t       pm;
+	playerState_t pm_ps;
+	pml_t         pml;
 } cgaz_t;
 extern cgaz_t s;
 

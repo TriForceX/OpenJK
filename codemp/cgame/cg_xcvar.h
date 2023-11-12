@@ -129,7 +129,7 @@ XCVAR_DEF( cg_thirdPersonFlagAlpha,				"1",	NULL,								CVAR_ARCHIVE )
 XCVAR_DEF( cg_stylePlayer,						"0",	NULL,								CVAR_ARCHIVE )
 
 XCVAR_DEF( cg_alwaysShowAbsorb,					"0",	NULL,								CVAR_ARCHIVE )
-XCVAR_DEF( cg_zoomFov,							"30.0",	NULL,								CVAR_ARCHIVE )					
+XCVAR_DEF( cg_zoomFov,							"30.0",	NULL,								CVAR_ARCHIVE )
 XCVAR_DEF( cg_fleshSparks,						"7",	NULL,								CVAR_ARCHIVE )
 XCVAR_DEF( cg_noFX,								"0",	NULL,								CVAR_ARCHIVE )
 XCVAR_DEF( cg_noTeleFX,							"0",	NULL,								CVAR_ARCHIVE )
@@ -422,8 +422,8 @@ XCVAR_DEF( cg_killfeedColors,                   "0",                NULL,       
 
 //Snaphud
 XCVAR_DEF(cg_snapHud, 							"0", 				NULL, 						CVAR_ARCHIVE )
-XCVAR_DEF(cg_snapHudRgba1, 						".02 .1 .02 .4", 	NULL, 						CVAR_ARCHIVE )
-XCVAR_DEF(cg_snapHudRgba2, 						".05 .05 .05 .1", 	NULL, 						CVAR_ARCHIVE )
+XCVAR_DEF(cg_snapHudRgba1, 						"0.5 0.7 0.9 0.7", 	NULL, 						CVAR_ARCHIVE )
+XCVAR_DEF(cg_snapHudRgba2, 						".05 .05 .05 .15", 	NULL, 						CVAR_ARCHIVE )
 XCVAR_DEF(cg_snapHudY, 							"248", 				NULL, 						CVAR_ARCHIVE )
 XCVAR_DEF(cg_snapHudHeight, 					"8", 				NULL, 						CVAR_ARCHIVE )
 XCVAR_DEF(cg_snapHudAuto, 						"1", 				NULL, 						CVAR_ARCHIVE )
